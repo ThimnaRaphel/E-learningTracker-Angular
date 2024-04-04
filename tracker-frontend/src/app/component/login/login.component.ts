@@ -50,15 +50,17 @@ export class LoginComponent {
     this.submitted = true;
     this.common = '';
     if (this.loginForm.valid) {
+      console.log('hiiii')
       const { email, password} = this.loginForm.value;
       this.authenticationService
         .userLogin({ email, password })
         .subscribe(
           (data) => {
-            if (data.success) {
+            console.log('hiii2')
+            if (data.status="200") {
               localStorage.setItem('access_token', data.token);
               localStorage.setItem('refresh_token', data.refreshToken);
-              this.router.navigate(['/messages']);
+              this.router.navigate(['/batches']);
               console.log("token",data.token);
               console.log(data)
             }
