@@ -13,7 +13,7 @@
             >
             <div class="mb-3">
               <label for="username" class="form-label">User name</label>
-
+    
               <input
                 type="text"
                 name="username"
@@ -23,6 +23,7 @@
                 aria-describedby="userName"
                 placeholder="user name"
               />
+              
               @if(f['userName'].errors &&( f['userName'].touched||submitted)){
               <div class="text-red-600">
                 @if(f['userName'].errors['required']){
