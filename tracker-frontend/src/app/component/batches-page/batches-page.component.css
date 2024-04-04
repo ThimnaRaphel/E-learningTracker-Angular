@@ -1,0 +1,22 @@
+.navbar-custom {
+    margin-bottom: 0;
+    background-color: transparent;
+    border-radius: 15px;
+    overflow: hidden; /* Remove default margin-bottom */
+  }
+  .navbar-custom .nav-link i {
+    color: #59059a; /* Change icon color here */
+  }
+  .inner-div {
+    margin-top: 0; /* Remove margin-top */
+  }
+  body, html {
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+  }
+  .page{
+    background-color: #f3f3f3;
+  }
+  /* .batch-card{
+    align-items: center;
+  } */

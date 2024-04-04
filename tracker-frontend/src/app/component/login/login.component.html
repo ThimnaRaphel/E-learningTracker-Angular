@@ -1,8 +1,10 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="bg-light my-5">
-          <form
+<div class="outer-div">
+    <div class="inner-div">
+      <div class="inner-div-body">
+        <div class="inner-div-head">
+            Login
+        </div>
+        <form
             class="card-body cardbody-color p-lg-5"
             [formGroup]="loginForm"
             (ngSubmit)="onSubmit()"
@@ -14,7 +16,7 @@
                 type="email"
                 name="email"
                 formControlName="email"
-                class="form-control"
+                class="form-control border-0 border-bottom"
                 id="email"
                 aria-describedby="emailHelp"
                 placeholder="email"
@@ -37,7 +39,7 @@
                 type="password"
                 name="password"
                 formControlName="password"
-                class="form-control"
+                class="form-control border-0 border-bottom"
                 id="password"
                 placeholder="password"
               />
@@ -58,14 +60,21 @@
                 {{common}}
               </small>
             <div class="text-center mt-3">
-              <button type="submit" class="btn btn-success px-5 mb-5 w-100">
-                Login
-              </button>
+                <button type="submit" class="btn custom-btn px-5 mb-5 w-100">
+                    Login
+                  </button>
             </div>
             
           </form>
-        </div>
       </div>
     </div>
-  </div>
+    </div>
+  
+   
+    
+  
+    <style>
+      
+      
+    </style>
   

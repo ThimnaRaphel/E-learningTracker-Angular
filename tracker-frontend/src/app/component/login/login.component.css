@@ -1,0 +1,51 @@
+.outer-div {
+    background-color: #9A50EB;
+    padding: 20px;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    width: 100vw; /* Set width to 100% of the viewport width */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+  }
+  
+  .inner-div {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    height: 80vh; /* Set height to 100% of the viewport height */
+    width: 30vw;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .inner-div-body{
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .inner-div-head{
+    font-size: 30px;
+    font-weight:600;
+    margin-left: 150px;
+    margin-top: 30px;
+  }
+
+.custom-btn {
+    background-image: linear-gradient(to right, #8116F9, #C06FF17b); 
+    color: white; 
+    width: 10vw;
+    border: 0;
+    margin-top: 50px;
+  }
+
+  .form-control.border-0.border-bottom {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ced4da; /* Adjust color as needed */
+    outline: none;
+    background-color: transparent;
+  }
+  
+  
+  
