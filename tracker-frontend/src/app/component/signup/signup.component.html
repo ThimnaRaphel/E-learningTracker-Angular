@@ -119,6 +119,11 @@
                         Successfully created a new Admin
                       </div>          
                 }
+                @if(accountCreated === false){
+                  <div class="alert alert-danger" role="alert">
+                      Error in creating a new Admin
+                    </div>          
+              }
               </div>
               </form>
             </div>
