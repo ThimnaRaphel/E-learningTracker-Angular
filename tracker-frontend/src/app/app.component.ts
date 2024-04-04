@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +11,16 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'tracker-frontend';
+
+  constructor(private router: Router) {}
+  
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+    console.log("Logged out");
+  }
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('access_token') !== null;
+  }
 }
