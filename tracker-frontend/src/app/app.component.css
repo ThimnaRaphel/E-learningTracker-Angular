@@ -1,0 +1,11 @@
+.outer-div {
+    background-color: #bb8df2;
+     /* Set height to 100% of the viewport height */
+    width: 100vw; /* Set width to 100% of the viewport width */
+    margin: 0; /* Remove default margin */ /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  

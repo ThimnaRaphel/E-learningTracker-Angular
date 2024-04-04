@@ -17,6 +17,7 @@
   .page{
     background-color: #f3f3f3;
   }
-  /* .batch-card{
+  .batch-card{
     align-items: center;
-  } */
+    margin-top: 30px;
+  }
