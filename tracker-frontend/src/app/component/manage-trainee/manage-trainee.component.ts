@@ -44,6 +44,10 @@ export class ManageTraineeComponent implements OnInit {
   }
 
   chunk(arr: any[], size: number): any[][] {
-    return arr.reduce((acc, _, i) => (i % size ? acc : [...acc, arr.slice(i, i + size)]), []);
+    const result = [];
+    for (let i = 0; i < arr.length; i += size) {
+      result.push(arr.slice(i, i + size));
+    }
+    return result;
   }
 }

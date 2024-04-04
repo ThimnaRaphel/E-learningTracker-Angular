@@ -7,5 +7,5 @@ import { LoginComponent } from './app/component/login/login.component';
 import { BatchesPageComponent } from './app/component/batches-page/batches-page.component';
 import { SignupComponent } from './app/component/signup/signup.component';
 import { ManageTraineeComponent } from './app/component/manage-trainee/manage-trainee.component';
-bootstrapApplication(ManageTraineeComponent, appConfig)
+bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));

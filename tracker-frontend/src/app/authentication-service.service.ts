@@ -14,7 +14,7 @@ export class AuthenticationService {
     return this.http.post<{token:string;success:boolean;refreshToken:string, user_id : string}>(baseUrl+'v2/admin/registration',user)
   }
     userLogin(user:{email : string;password : string}):  Observable<{token:string;success:boolean;refreshToken:string}>{
-      return this.http.post<{token:string;success:boolean;refreshToken:string}>(baseUrl+'login/',user)
+      return this.http.post<{token:string;success:boolean;refreshToken:string}>(baseUrl+'v1/authentication/login',user)
     }
 
 }
