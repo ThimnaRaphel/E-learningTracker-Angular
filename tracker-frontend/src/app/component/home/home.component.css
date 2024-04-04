@@ -1,7 +1,7 @@
 .inner-div {
     background-color: #5B0BB5;
     padding: 10px;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     margin-top: 40px;
     margin-bottom: 40px;
     border-radius: 15px;
@@ -9,6 +9,15 @@
     width: 80vw;
     color: white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   .inner-div-body{
