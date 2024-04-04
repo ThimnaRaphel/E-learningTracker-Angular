@@ -2,7 +2,7 @@
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 40vh;
+    height: 47vh;
     width: 20vw;
     margin-left: 80px;
   }
@@ -75,5 +75,10 @@
     font-weight: bold;
     font-size: 20px;
     flex: 2;
+}
+.edit-button{
+    margin-top: 10px;
+    margin-left: 100px;
+    border-radius: 20px;
 }
 
