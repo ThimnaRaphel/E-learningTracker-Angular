@@ -1,9 +1,11 @@
 .inner-div {
     background-color: #5B0BB5;
     padding: 10px;
-    margin: 40px;
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     border-radius: 15px;
-    height: 80vh; /* Set height to 100% of the viewport height */
+    height: 77vh; /* Set height to 100% of the viewport height */
     width: 80vw;
     color: white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

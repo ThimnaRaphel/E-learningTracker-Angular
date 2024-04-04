@@ -50,7 +50,7 @@ export class LoginComponent {
     this.submitted = true;
     this.common = '';
     if (this.loginForm.valid) {
-      const { email, password, userName } = this.loginForm.value;
+      const { email, password} = this.loginForm.value;
       this.authenticationService
         .userLogin({ email, password })
         .subscribe(
@@ -60,6 +60,7 @@ export class LoginComponent {
               localStorage.setItem('refresh_token', data.refreshToken);
               this.router.navigate(['/messages']);
               console.log("token",data.token);
+              console.log(data)
             }
           },
           ({ error }) => {
