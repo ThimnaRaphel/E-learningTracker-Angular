@@ -106,8 +106,8 @@
 
 .card__btn {
     margin-top: 15px;
-    width: 106px;
-    height: 31px;
+    width: 116px;
+    height: 41px;
     border: 2px solid var(--main-color);
     border-radius: 4px;
     font-weight: 700;
@@ -122,6 +122,16 @@
     background: var(--main-color);
     color: var(--bg-color);
 
+}
+
+#popup {
+    z-index: 10;
+}
+
+.buttons-group {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .card__btn:hover {

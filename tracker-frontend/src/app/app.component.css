@@ -9,3 +9,6 @@
     overflow-y: hidden;
   }
   
+#logout-container {
+  margin-right: 20px;
+}

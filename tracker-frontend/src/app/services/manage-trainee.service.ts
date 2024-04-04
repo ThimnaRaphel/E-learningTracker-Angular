@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -14,7 +14,8 @@ interface Trainee {
   };
 }
 
-const baseUrl = 'http://localhost:5432/api/v2/trainee';
+const baseUrl = 'http://localhost:5432/api/';
+// const getTraineesUrl = '';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,14 @@ export class ManageTraineeService {
   }
 
   getTrainees() : Observable<Trainee[]> {
-    return this.http.get<Trainee[]>(baseUrl);
+    return this.http.get<Trainee[]>(baseUrl + 'v2/trainee');
   }
   
+    deactivateTrainee(user_id : string, user_name : string, status : any) : Observable<any> {
+      const body = {user_id, user_name, status};
+      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+      return this.http.patch<any>(baseUrl + 'v2/trainee', body, {
+        headers,
+      });
+    }
 }

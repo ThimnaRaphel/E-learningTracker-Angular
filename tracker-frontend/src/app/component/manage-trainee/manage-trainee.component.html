@@ -1,4 +1,25 @@
 <h1 class = "manage-heading">Deactivate Trainees</h1>
+@if(deactivatedStatus === true){
+    <div class="alert alert-success" role="alert">
+        Successfully Deactivated the Trainee
+      </div>
+}
+@if(deactivatedStatus === false){
+    <div class="alert alert-danger" role="alert">
+        Error while deactivating the Trainee
+      </div>
+}
+@if(showAlert){
+    <div style="position:fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: center;" id = "popup">
+        <div class="alert alert-danger">
+            <p>Are you sure you want to Deactivate this Trainee?</p>
+            <div class = "buttons-group">
+                <button (click)="confirm()" class="btn-danger btn-sm mx-2">Yes</button>
+                <button (click)="cancel()" class="btn-warning btn-sm mx-2">No</button>
+            </div>
+        </div>
+    </div>
+}
 <div class = "purple-data-container">
     <div class = "traineeContainer">
         <div *ngFor="let row of chunk(trainees, 3)">
@@ -10,7 +31,7 @@
                         <div class="card__title">{{obj.user.user_name}}</div>
                         <div class="card__subtitle">{{obj.batch.batch_name}}</div>
                         <div class="card__wrapper">
-                            <button class="card__btn card__btn-solid">DELETE TRAINEE</button>
+                            <button class="card__btn card__btn-solid" (click)="deactivateTrainee(obj.user_id, obj.user.user_name)">DEACTIVATE TRAINEE</button>
                         </div>
                     </div>
                 </div>

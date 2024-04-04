@@ -16,7 +16,7 @@ export class AppComponent {
   
   logOut() {
     localStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
     console.log("Logged out");
   }
 
