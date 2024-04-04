@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
+
 export class LoginComponent {
   loginForm!: FormGroup;
   submitted = false;
