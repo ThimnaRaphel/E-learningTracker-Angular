@@ -27,13 +27,20 @@ export class ManageTraineeService {
 
   }
 
-  getTrainees() : Observable<Trainee[]> {
-    return this.http.get<Trainee[]>(baseUrl + 'v2/trainee');
+  getTrainees(token: string): Observable<Trainee[]> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json', 
+      'Authorization': 'Bearer ' + token
+    });
+    return this.http.get<Trainee[]>(baseUrl + 'v2/trainee', { headers: headers });
   }
   
-    deactivateTrainee(user_id : string, user_name : string, status : any) : Observable<any> {
+    deactivateTrainee(user_id : string, user_name : string, status : any, token : string) : Observable<any> {
       const body = {user_id, user_name, status};
-      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+      const headers = new HttpHeaders({ 
+        'Content-Type': 'application/json', 
+        'Authorization': 'Bearer ' + token
+      });
       return this.http.patch<any>(baseUrl + 'v2/trainee', body, {
         headers,
       });

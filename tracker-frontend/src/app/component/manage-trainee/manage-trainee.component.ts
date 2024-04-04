@@ -37,14 +37,19 @@ export class ManageTraineeComponent implements OnInit {
   deactivatedStatus : boolean |null = null;
   deactivatedFailure : boolean |null = null;
   status : any = 0;
+  token : string | null = localStorage.getItem('access_token');
 
   constructor(private ManageTraineeService:ManageTraineeService) {}
   ngOnInit(): void {
-    this.ManageTraineeService.getTrainees().subscribe((data) =>{
-      this.trainees = data;
-    },(error) =>{
-      console.log('Error fetching trainees',error)
-    });
+    if(this.token)
+    {
+      console.log('Bearer ' + this.token);
+      this.ManageTraineeService.getTrainees(this.token).subscribe((data) =>{
+        this.trainees = data;
+      },(error) =>{
+        console.log('Error fetching trainees',error)
+      });
+    }
   }
 
   chunk(arr: any[], size: number): any[][] {
@@ -64,8 +69,9 @@ export class ManageTraineeComponent implements OnInit {
   confirm() {
     this.showAlert = false;
     console.log("user_id--------", this.user_id);
+    if(this.token) {
     this.ManageTraineeService
-          .deactivateTrainee(this.user_id,  this.user_name, this.status)
+          .deactivateTrainee(this.user_id,  this.user_name, this.status, this.token)
           .subscribe(
             (response) => {
                 console.log("Successfully deactivated");
@@ -83,6 +89,7 @@ export class ManageTraineeComponent implements OnInit {
                 }, 2000);
             }
           );
+    }
   }
 
   cancel(){
