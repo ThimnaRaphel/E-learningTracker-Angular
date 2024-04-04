@@ -3,6 +3,8 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { LoginComponent } from './app/component/login/login.component';
+import { BatchesPageComponent } from './app/component/batches-page/batches-page.component';
 
-bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(BatchesPageComponent, appConfig)
   .catch((err) => console.error(err));
