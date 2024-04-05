@@ -1,64 +1,82 @@
+<div>
 <div class="outer-div">
-    <div class="inner-div">
-        <div class="page">
-        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-            <div class="container">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-cog"></i> Settings</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+  <div class="inner-div">
+      <div class="page">
           <div class="batch-card">
-          <app-batchcard></app-batchcard>
-        </div>
+              <div *ngIf="batches && batches.length > 0">
+                  <div *ngFor="let batch of batches" class="batch-item">
+                      <div class="inner-div-body">
+                          <div class="box">
+                              <div class="box-content">
+                                  <div class="day-circle">
+                                      <div class="day-text">Day</div>
+                                      <div class="day-number">10/22</div>
+                                  </div>
+                                  <div class="batch-name">{{ batch.batch_name }}</div>
+                                  <div class="trainees">
+                                      <div class="no-of-trainees">Trainees -</div>
+                                      <div class="trainee-no">{{ batch.noOfTrainees }}</div>
+                                  </div>
+                                  <div style="display: flex;">
+                                      <div class="start-date-text">start :</div>
+                                      <div class="start-date">{{ batch.start_date }}</div>
+                                  </div>
+                                  <div style="display: flex;">
+                                      <div class="end-date-text">end :</div>
+                                      <div class="end-date">{{ batch.end_date }}</div>
+                                  </div>
+                                  <div class="edit-button">
+                                      <button style="border-radius: 20px; width: 80px; border-color: #3E94D2; background-color: #3E94D2;" (click)="editBatch(batch.batch_id)">Edit</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div *ngIf="!batches || batches.length === 0" class="no-batches-message">
+                  No batches available.
+              </div>
+          </div>
       </div>
+  </div>
+</div>
+@if(edit){
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>Contact Form</h4>
+    
+            <!-- <div>
+                @if(showFormModal){
+                    <div class="alert alert-success" role="alert">
+                        Contact submitted successfully
+                    </div>
+                }
+            </div> -->
+    
+            <form 
+        
+            >
+                <div class="mb-3">
+                    <label for="name">BatchName : </label>
+                    <input type="text" class="form-control" id="batchName" placeholder="Batch Name" formControlName="batchName">
+                    <!-- @if (contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched) {
+                        <div class="form-text text-danger tw-bold">Batch name is Required</div>
+                    } -->
+                </div>
+    
+                <div class="mb-3">
+                    <label for="email">Start Date : </label>
+                    <input type="text" class="form-control" id="startDate" placeholder="Start Date" formControlName="startDate">
+                    <!-- @if(contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched) {
+                        <div class="form-text text-danger tw-bold">Start Date is Required</div>
+                    } -->
+                </div>
+    
+                <div>
+                    <button type="submit" class="btn btn-primary custom-btn">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
-    </div>
-  
-    <style>
-      .outer-div {
-        background-color: #bb8df2;
-        padding: 20px;
-        height: 100vh; /* Set height to 100% of the viewport height */
-        width: 100vw; /* Set width to 100% of the viewport width */
-        margin: 0; /* Remove default margin */
-        display: flex; /* Use flexbox to center content */
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-      }
-      
-      .inner-div {
-        background-color: #f3f3f3;
-        padding: 10px;
-        border-radius: 15px;
-        height: 90vh; /* Set height to 100% of the viewport height */
-        width: 80vw;
-        color: white;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
-  
-      .inner-div-body{
-        padding: 80px;
-        padding-top: 100px;
-        width: 50vw;
-      }
-      .inner-div-head{
-        font-size:70px;
-        font-weight: bold;
-      }
-      .inner-div-text{
-        font-size:20px;
-        font-weight:100px;
-      }
-    </style>
-  
+}
+</div>

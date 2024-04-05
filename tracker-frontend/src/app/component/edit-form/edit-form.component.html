@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Contact Form</h4>
+
+        <!-- <div>
+            @if(showFormModal){
+                <div class="alert alert-success" role="alert">
+                    Contact submitted successfully
+                </div>
+            }
+        </div> -->
+
+        <form [formGroup]="contactForm" (submit)="onSubmit()">
+            <div class="mb-3">
+                <label for="name">BatchName : </label>
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+                @if (contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched) {
+                    <div class="form-text text-danger tw-bold">Batch name is Required</div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Start Date : </label>
+                <input type="text" class="form-control" id="email" placeholder="email" formControlName="email">
+                @if(contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched) {
+                    <div class="form-text text-danger tw-bold">Start Date is Required</div>
+                }
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary custom-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

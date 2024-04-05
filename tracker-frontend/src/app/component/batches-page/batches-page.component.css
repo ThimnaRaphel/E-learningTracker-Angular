@@ -16,8 +16,127 @@
   }
   .page{
     background-color: #f3f3f3;
+    color: black;
+    font-size: large;
   }
   .batch-card{
     align-items: center;
     margin-top: 30px;
   }
+  .outer-div {
+    background-color: #bb8df2;
+    padding: 20px;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    width: 100vw; /* Set width to 100% of the viewport width */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+  }
+  
+  .inner-div {
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 15px;
+    height: 90vh; /* Set height to 100% of the viewport height */
+    width: 80vw;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .inner-div-body{
+    padding: 80px;
+    padding-top: 100px;
+    width: 50vw;
+  }
+  .inner-div-head{
+    font-size:70px;
+    font-weight: bold;
+  }
+  .inner-div-text{
+    font-size:20px;
+    font-weight:100px;
+  }
+  .box{
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 47vh;
+    width: 20vw;
+    margin-left: 80px;
+  }
+.box-content{
+    padding: 15px;
+    padding-top: 10px;
+  }
+  .day-circle{
+        margin-top: 15px;
+        margin-bottom: 10px;
+        background-color:#BD00FF;
+        border-radius:35px;
+        height:70px;
+        width : 70px;
+        margin-left: 80px;
+        align-content:'center';
+        align-items:'center';
+  }
+  .day-text{
+    color: white;
+    font-size: 20px;
+    margin-left: 17px;
+    font-weight: 600;
+  }
+  .day-number{
+    color: white;
+    font-size: 20px;
+    margin-left: 11px;
+    font-weight: 600;
+  }
+.batch-name{
+    color: black;
+    font-weight: bold;
+    font-size:30px;
+    justify-self: center;
+}
+.trainees{
+    display: flex;
+    width: 2wv;
+}
+.no-of-trainees{
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+    flex: 1;
+}
+.trainee-no{
+    flex: 1;
+    color: black;
+    font-size: 20px;
+}
+.start-date-text{
+    color: #8518FF;
+    font-size: 20px;
+    flex: 1;
+}
+.start-date{
+    color: #8518FF;
+    font-weight: bold;
+    font-size: 20px;
+    flex: 2;
+}
+.end-date-text{
+    color: #8518FF;
+    font-size: 20px;
+    flex: 1;
+}
+.end-date{
+    color: #8518FF;
+    font-weight: bold;
+    font-size: 20px;
+    flex: 2;
+}
+.edit-button{
+    margin-top: 10px;
+    margin-left: 70px;
+    border-radius: 20px;
+}
+
