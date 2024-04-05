@@ -50,10 +50,10 @@ export class BatchesPageComponent implements OnInit{
     const date = new Date(dateString);
     const day = date.getDate();
     const monthNames = [
-      "January", "February", "March",
+      "Jan", "Feb", "March",
       "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
+      "Aug", "Sep", "Oct",
+      "Nov", "Dec"
     ];
     const monthIndex = date.getMonth();
     const year = date.getFullYear();
@@ -84,6 +84,12 @@ export class BatchesPageComponent implements OnInit{
     this.edit=true;
     console.log('edir')
     console.log(this.edit);
+    console.log(batch_id);
+    localStorage.setItem("batch_id",batch_id);
+  }
+
+  onCloseEditForm(): void {
+    this.edit = false;
   }
 
 }

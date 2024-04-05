@@ -22,6 +22,7 @@ export class LoginComponent {
   loginForm!: FormGroup;
   submitted = false;
   common = '';
+  success = false;
 
   constructor(
     private fb: FormBuilder,
@@ -63,6 +64,7 @@ export class LoginComponent {
               this.router.navigate(['/batches']);
               console.log("token",data.token);
               console.log(data)
+              this.success=true;
             }
           },
           ({ error }) => {

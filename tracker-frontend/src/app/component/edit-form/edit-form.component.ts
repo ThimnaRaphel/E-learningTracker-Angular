@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { EditBatchService } from '../../services/edit-batch.service';
+import { Router, RouterLink } from '@angular/router';
 
 interface EditBatchDetails{
   batch_id : string
@@ -10,30 +11,37 @@ interface EditBatchDetails{
   start_date : string;
   end_date : string
 }
+
+const batchId = localStorage.getItem('batch_id');
 @Component({
   selector: 'app-edit-form',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,HttpClientModule,],
+  imports: [CommonModule,ReactiveFormsModule,HttpClientModule,RouterLink],
   providers:[EditBatchService],
   templateUrl: './edit-form.component.html',
   styleUrl: './edit-form.component.css'
 })
-export class EditFormComponent {
+export class EditFormComponent implements OnChanges{
   @Input() editBatchDetails:EditBatchDetails | null = null;
   @Input() edit:boolean = true;
   @Output() onEditClose = new EventEmitter<EditBatchDetails|null>();
+  @Output() closeForm = new EventEmitter<void>();
   editForm! : FormGroup
   showFormModal:boolean = false;
-  isEdited: boolean = false;
-  isFormSubmitted: boolean = false;
+  isEdited = false;
+  isFormSubmitted = false;
+  // showForm=true;
+  // isFormOpen: boolean = false
   
-  constructor (private fb:FormBuilder,private editBatchService:EditBatchService){
+  constructor (private fb:FormBuilder,private editBatchService:EditBatchService,private router: Router){
     this.editForm = this.fb.group({
-      name : new FormControl('',[Validators.required]),
+      batchId,
+      BatchName : new FormControl('',[Validators.required]),
       startDate : new FormControl('',[Validators.required]),
       endDate : new FormControl('',[Validators.required]),
     })
   }
+  
   ngOnInit(): void {
   }
 
@@ -42,18 +50,25 @@ export class EditFormComponent {
     console.log(this.editForm.value)
     console.log(this.isEdited)
     console.log(this.isFormSubmitted)
-    if(this.editForm.valid && (this.isEdited||this.isFormSubmitted)){
+    if(this.editForm.valid){
       console.log(this.editForm.value)
-      const { batch_id,batch_name,start_date,end_date } = this.editForm.value;
-      if(this.editBatchDetails){
+      const { batchId,BatchName,startDate,endDate } = this.editForm.value;
+      console.log(this.editBatchDetails);
+      if(this.editForm.value){
         console.log('entry 1')
         this.editBatchService
-        .updateContact(this.editBatchDetails.batch_id,batch_name,start_date,end_date)
+        .updateContact(batchId,BatchName,startDate,endDate)
         .subscribe(
           (response)=>{
             this.onEditClose.emit(response);
             this.editForm.reset();
+            console.log(response);
             console.log("ts -edit")
+            this.isEdited=true;
+            setTimeout(() => {
+              this.isEdited=false;
+              location.reload();
+            }, 2000);
           },
           (error)=>{
             console.error('Error update contact:',error)
@@ -80,7 +95,7 @@ export class EditFormComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes['editBatchDetails']){
+    if(changes['endDate']){
       if(this.editBatchDetails){
         this.editForm.patchValue({
           name : this.editBatchDetails.batch_name,
@@ -92,8 +107,9 @@ export class EditFormComponent {
     }
   }
 
-  onFormChange() {
-    this.isFormSubmitted = true;
-  }
+    onClose(): void {
+      this.closeForm.emit();
+    }
+
       
 }

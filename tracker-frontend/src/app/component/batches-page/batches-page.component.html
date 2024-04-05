@@ -2,8 +2,10 @@
     <h1 class = "heading">Batches</h1>
 <div class="outer-div">
   <div class="inner-div">
-      <div *ngIf="batches && batches.length > 0">
-      <div class="card" *ngFor="let batch of batches">
+      <div *ngIf="batches && batches.length > 0" style="width: 300px;">
+        <div *ngFor="let row of chunk(batches, 3)" style="display: flex;">
+          <div class="col" *ngFor="let batch of row">
+      <div class="card">
         <div class="smallIcon">
           <!-- <div class="Icon">{{batch.batch_name}}</div> -->
           <div class="Name">{{batch.batch_name}}</div>
@@ -16,6 +18,8 @@
         </div>
       </div>
     </div>
+  </div>
+    </div>
       <div *ngIf="!batches || batches.length === 0" class="no-batches-message">
         No batches available.
     </div>
@@ -23,9 +27,7 @@
 </div>
 @if(edit){
     <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 1;">
-        <div class="alert bg-light" style="width: 500px; ">
-            <app-edit-form></app-edit-form>
-            </div>
+            <app-edit-form (closeForm)="onCloseEditForm()"s></app-edit-form>
     </div>
 }
 </div>

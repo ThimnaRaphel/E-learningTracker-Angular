@@ -4,6 +4,11 @@
         <div class="inner-div-head">
             Login
         </div>
+        @if(success){
+          <div class="alert alert-success" role="alert">
+            Login successful
+           </div>
+        }
         <form
             class="card-body cardbody-color p-lg-5"
             [formGroup]="loginForm"

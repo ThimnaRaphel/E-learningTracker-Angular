@@ -1,41 +1,40 @@
 <div class="row">
-    <div class="col-lg-6 contact-form-container"> <!-- Added class for background color -->
-        <h4>Edit Batch</h4>
-
-        <!-- <div>
-            @if(showFormModal){
-                <div class="alert alert-success" role="alert">
-                    Contact submitted successfully
-                </div>
-            }
-        </div> -->
+    <div class="col-lg-6 contact-form-container" > <!-- Added class for background color -->  
+        @if(isEdited){
+            <div class="alert alert-success" role="alert">
+                Batch updated successfully
+            </div>
+        }
+        <!-- Center-aligned heading -->
+        <h4 class="text-center">Edit Batch <button type="button" class="btn-close float-end" aria-label="Close" (click)="onClose()"></button></h4>
 
         <form [formGroup]="editForm" (submit)="onSubmit()">
             <div class="mb-3">
-                <label for="name">BatchName : </label>
-                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
-                @if (editForm.get('name')?.hasError('required') && editForm.get('name')?.touched) {
+                <label for="BatchName">BatchName : </label>
+                <input type="text" class="form-control" id="BatchName" placeholder="batch name" formControlName="BatchName">
+                @if (editForm.get('BatchName')?.hasError('required') && editForm.get('BatchName')?.touched) {
                     <div class="form-text text-danger tw-bold">Batch name is Required</div>
                 }
             </div>
 
             <div class="mb-3">
                 <label for="startDate">Start Date : </label>
-                <input type="text" class="form-control" id="startDate" placeholder="startDate" formControlName="startDate">
+                <input type="text" class="form-control" id="startDate" placeholder="start date" formControlName="startDate">
                 @if(editForm.get('startDate')?.hasError('required') && editForm.get('startDate')?.touched) {
-                    <div class="form-text text-danger tw-bold">Start Date is Required</div>
+                    <div class="form-text text-danger tw-bold">Start Date is not updated</div>
                 }
             </div>
 
             <div class="mb-3">
-                <label for="endDate">Start Date : </label>
-                <input type="text" class="form-control" id="endDate" placeholder="endDate" formControlName="endDate">
+                <label for="endDate">End Date : </label>
+                <input type="text" class="form-control" id="endDate" placeholder="end date" formControlName="endDate">
                 @if(editForm.get('endDate')?.hasError('required') && editForm.get('endDate')?.touched) {
-                    <div class="form-text text-danger tw-bold">End Date is Required</div>
+                    <div class="form-text text-danger tw-bold">End Date is not updated</div>
                 }
             </div>
 
-            <div>
+            <!-- Adjusted button placement -->
+            <div class="text-center">
                 <button type="submit" class="btn btn-primary custom-btn">Submit</button>
             </div>
         </form>

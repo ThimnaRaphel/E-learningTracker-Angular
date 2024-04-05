@@ -42,6 +42,7 @@
     width: 80vw;
     color: white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column;
   }
   .inner-div-body{
     padding: 80px;
@@ -79,6 +80,7 @@
         align-content:'center';
         align-items:'center';
   }
+  
   .day-text{
     color: white;
     font-size: 20px;
@@ -145,7 +147,7 @@
 }
 .edit-button{
     margin-top: 10px;
-    margin-left: 70px;
+    margin-left: 100px;
     border-radius: 20px;
     background-color: #bb8df2;
 }
@@ -153,6 +155,7 @@
 .card {
   width: 250px;
   height: 170px;
+  margin-left: 100px;
   background: #262626;
   margin-bottom: 10px;
   border-radius: 20px;
@@ -189,7 +192,7 @@
 }
 
 .Name {
-  width: 140px;
+  width: 200px;
   height: 20px;
   margin: 10px auto; /* Center horizontally using margin */
   border-radius: 5px;
