@@ -7,19 +7,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent" >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item ms-5">
+          <li *ngIf="!isLoggedIn()" class="nav-item ms-5">
             <a class="navbar-brand text-light" routerLink="signup">SignUp</a> <!-- Added text-light class for light text -->
           </li>
-          <li class="nav-item ms-5">
+          <li *ngIf="!isLoggedIn()" class="nav-item ms-5">
             <a class="navbar-brand text-light" routerLink="login">Login</a> <!-- Added text-light class for light text -->
           </li>
           <li class="nav-item ms-5">
-            <a class="navbar-brand text-light" routerLink="batches">Batches</a> <!-- Added text-light class for light text -->
+            <a *ngIf="isLoggedIn()" class="navbar-brand text-light" routerLink="batches">View Batches</a> <!-- Added text-light class for light text -->
           </li>
           <li class="nav-item ms-5">
-            <a class="navbar-brand text-light" routerLink="login">Login</a> <!-- Added text-light class for light text -->
+            <a *ngIf="isLoggedIn()" class="navbar-brand text-light" routerLink="managetrainee">Manage Trainees</a> <!-- Added text-light class for light text -->
           </li>
         </ul>
+        <form class="d-flex" id = "logout-container">
+          <button *ngIf="isLoggedIn()" type="button" class="btn btn-primary" (click)="logOut()">Logout</button>
+        </form>
       </div>
     </div>
   </nav>

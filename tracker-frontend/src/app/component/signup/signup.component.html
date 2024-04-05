@@ -1,5 +1,5 @@
 <div class = "ilpex-heading">
-    <h1 class = "ilpex-heading">ILPex Admin Signup</h1>
+    <h1 class = "ilpex-heading">Signup</h1>
   </div>
   <div class = signup-container>
     <div class="container" >
@@ -119,6 +119,11 @@
                         Successfully created a new Admin
                       </div>          
                 }
+                @if(accountCreated === false){
+                  <div class="alert alert-danger" role="alert">
+                      Error in creating a new Admin
+                    </div>          
+              }
               </div>
               </form>
             </div>

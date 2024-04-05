@@ -1,3 +1,9 @@
 .custom-btn {
     background-color: #5B0BB5;
 }
+
+.contact-form-container {
+    background-color: #8518FF;
+    padding: 20px; /* Add padding for better appearance */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}

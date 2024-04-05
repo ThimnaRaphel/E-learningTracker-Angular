@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-lg-6">
-        <h4>Contact Form</h4>
+    <div class="col-lg-6 contact-form-container"> <!-- Added class for background color -->
+        <h4>Edit Batch</h4>
 
         <!-- <div>
             @if(showFormModal){
@@ -10,20 +10,28 @@
             }
         </div> -->
 
-        <form [formGroup]="contactForm" (submit)="onSubmit()">
+        <form [formGroup]="editForm" (submit)="onSubmit()">
             <div class="mb-3">
                 <label for="name">BatchName : </label>
                 <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
-                @if (contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched) {
+                @if (editForm.get('name')?.hasError('required') && editForm.get('name')?.touched) {
                     <div class="form-text text-danger tw-bold">Batch name is Required</div>
                 }
             </div>
 
             <div class="mb-3">
-                <label for="email">Start Date : </label>
-                <input type="text" class="form-control" id="email" placeholder="email" formControlName="email">
-                @if(contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched) {
+                <label for="startDate">Start Date : </label>
+                <input type="text" class="form-control" id="startDate" placeholder="startDate" formControlName="startDate">
+                @if(editForm.get('startDate')?.hasError('required') && editForm.get('startDate')?.touched) {
                     <div class="form-text text-danger tw-bold">Start Date is Required</div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label for="endDate">Start Date : </label>
+                <input type="text" class="form-control" id="endDate" placeholder="endDate" formControlName="endDate">
+                @if(editForm.get('endDate')?.hasError('required') && editForm.get('endDate')?.touched) {
+                    <div class="form-text text-danger tw-bold">End Date is Required</div>
                 }
             </div>
 

@@ -10,11 +10,11 @@
 
 .ilpex-heading {
     background-color: #bb8df2;
-    margin : 0;
     padding : 0;
+    margin: 30px 0px 0px 0px;
     color : white;
     text-align:center;
-    font-size: 80px; 
+    font-size: 60px; 
     font-family: "Poppins", sans-serif;
     font-weight: 500;      
 }
@@ -25,9 +25,10 @@
 
 #form-container {
     border-radius: 30px;
-    background-color: white;
+    background-color: #5B0BB5;
 }
 
 label {
     margin-left : 5px;
+    color:white
 }

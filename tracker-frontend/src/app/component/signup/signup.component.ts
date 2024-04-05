@@ -22,7 +22,7 @@ export class SignupComponent {
   submitted = false;
   common = '';
   wrongPassword : boolean= false;
-  accountCreated : boolean  = false;
+  accountCreated : boolean | null  = null;
   user_id : string = '';
 
   constructor(
@@ -67,7 +67,7 @@ export class SignupComponent {
                 console.log("Successss");
                 this.accountCreated=true;
                 setTimeout(() => {
-                  this.accountCreated=false;
+                  this.accountCreated=null;
                   location.reload();
                 }, 2000);
                 this.submitted = false;
@@ -75,6 +75,11 @@ export class SignupComponent {
             },
             ({ error }) => {
               this.common = error.message;
+              this.accountCreated=false;
+                setTimeout(() => {
+                  this.accountCreated=null;
+                }, 2000);
+                this.submitted = false;
             }
           );
         }
